@@ -11,6 +11,17 @@
     <title>Log In | Systema</title>
 </head>
 <body>
-    
+    <div class="container">
+        <img src="{% static 'img/systema-logo.png' %}" alt="Systema Logo">
+        <hr>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.username }}
+            {{ form.password }}
+
+            <button type="submit">Log In</button>
+            <p>Programmed By Tafadzwa</p>
+        </form>
+    </div>
 </body>
 </html>
