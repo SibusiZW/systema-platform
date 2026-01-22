@@ -62,6 +62,7 @@ WSGI_APPLICATION = 'systema.wsgi.application'
 
 DATABASES = {
     'default': {
+        # Replace with Local DB Info
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'systema-db',
         'USER': 'systema-admin',
