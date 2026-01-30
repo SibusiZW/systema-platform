@@ -32,6 +32,13 @@ nav {
     justify-content: space-between;
 }
 
+.search {
+    padding: 10px;
+    border: 1px solid #0c0c86;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
 nav a {
     color: #fff;
     text-decoration: none;

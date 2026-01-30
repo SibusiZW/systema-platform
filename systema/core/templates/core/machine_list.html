@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <h1>Machine List</h1>
+
+    <form method="get">
+        <input name="q" class="search" type="text" placeholder="Search for a pc">
+        <button type="submit" class="btn btn-primary">Search</button>
+
+        <table class="table">
+            <thead>
+                <th>Name</th>
+                <th>Condition</th>
+                <th>Date Created</th>
+            </thead>
+
+            <tbody>
+                {% for machine in machines %}
+                    <tr>
+                        <td>{{ machine.name }}</td>
+                        <td>{{ machine.condition }}</td>
+                        <td>{{ machine.date_created }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </form>
+{% endblock %}
