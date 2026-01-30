@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <div class="box">
+        <form method="post">
+            {% csrf_token %}
+            <h1>Edit PC</h1>
+            <input name="name" value="{{ obj.name }}" type="text"required>
+            <select name="condition" aria-op required id="id_condition">
+                <option value="" selected>{{ obj.condition }}</option>
+                <option value=""></option>
+                    
+                <option value="Missing">MISSING</option>
+
+                <option value="Good">GOOD</option>
+
+                <option value="Broken">BROKEN</option>
+
+            </select>
+            <button class="btn btn-primary" type="submit">Save</button>
+        </form>
+    </div>
+{% endblock %}

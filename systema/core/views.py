@@ -14,6 +14,7 @@ def signout(request):
     logout(request)
     return redirect('login')
 
+@login_required(login_url='/auth/login')
 def machine_list(request):
     if request.method == "GET":
         query = request.GET.get('q')
@@ -23,6 +24,7 @@ def machine_list(request):
 
     return render(request, 'core/machine_list.html', context={ 'machines': machines })
 
+@login_required(login_url='/auth/login')
 def add_machine(request):
     if request.method == 'POST':
         form = MachineForm(request.POST)
@@ -35,8 +37,26 @@ def add_machine(request):
 
     return render(request, 'core/add_machine.html', context={ 'form': form })
 
+@login_required(login_url='/auth/login')
 def delete_pc(request, id):
    machine = get_object_or_404(Machine, pk=id)
    machine.delete()
 
    return redirect('machines')
+
+@login_required(login_url='/auth/login')
+def edit_pc(request, id):
+    obj = get_object_or_404(Machine, pk=id)
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        condition = request.POST.get('condition')
+
+        obj.name = name
+        obj.condition = condition
+
+        obj.save()
+        return redirect('machines')
+
+    
+
+    return render(request, 'core/edit_pc.html', {  'obj': obj })

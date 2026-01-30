@@ -6,5 +6,6 @@ urlpatterns = [
     path('logout/', views.signout, name='logout'),
     path('machines/', views.machine_list, name='machines'),
     path('add_machine/', views.add_machine, name='add_pc'),
-    path('delete/<int:id>/', views.delete_pc, name='delete'),
+    path('delete/<int:id>/', views.delete_pc, name='delete_pc'),
+    path('edit/<int:id>/', views.edit_pc, name='edit_pc')
 ]
