@@ -1,1 +1,14 @@
 {% extends 'core/base.html' %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="box">
+            <h1>Add a PC</h1>
+            {{ form.name }}
+            <p style="color: #fffefe;">Choose the condition of the PC</p>
+            {{ form.condition }}
+            <button class="btn btn-primary" type="submit">Add PC</button>
+        </div>
+    </form>
+{% endblock %}

@@ -4,6 +4,7 @@ from django.db.models import Q
 from django.http import HttpRequest
 from django.contrib.auth.decorators import login_required
 from .models import Machine, Allocation, Student
+from .forms import MachineForm
 
 @login_required(login_url='/auth/login')
 def home(request):
@@ -24,4 +25,13 @@ def machine_list(request):
     return render(request, 'core/machine_list.html', context={ 'machines': machines })
 
 def add_machine(request):
-    return render(request, 'core/add_machine.html')
+    if request.method == 'POST':
+        form = MachineForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('machines')
+    
+    else:
+        form = MachineForm()
+
+    return render(request, 'core/add_machine.html', context={ 'form': form })

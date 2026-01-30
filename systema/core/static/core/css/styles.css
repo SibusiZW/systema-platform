@@ -24,6 +24,28 @@ body {
     transform: translateY(-20px);
 }
 
+.box {
+    margin: 50px auto;
+    background-color: #ddd;
+    padding: 20px;
+    text-align: center;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 2px 3px 10px;
+}
+
+.box input, .box select {
+    padding: 10px;
+    font-size: 15px;
+    border: 1px solid #0c0c86;
+    border-radius: 10px;
+}
+
+.box * {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
 nav {
     background: #4e1eb7;
     padding: 1rem 2rem;
