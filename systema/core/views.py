@@ -60,3 +60,7 @@ def edit_pc(request, id):
     
 
     return render(request, 'core/edit_pc.html', {  'obj': obj })
+
+def student_list(request):
+    # TODO: Add seacrch functionality for student's list
+    return render(request, 'core/student_list.html', { 'students': Student.objects.order_by('-date_created') })
