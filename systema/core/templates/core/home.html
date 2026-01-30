@@ -2,5 +2,29 @@
 
 {% block content %}
     <h1>Hi, {{ user }}!</h1>
-    <i class="fa-solid fa-laptop fa-3x"></i>
+    
+    <div class="stats-card">
+        <i class="fa-sharp fa-solid fa-laptop fa-beat-fade fa-3x"></i>
+        <h1>All machines</h1>
+        <p>Total no. {{ total_m_count }}</p>
+    </div>
+
+    <div class="stats-card">
+        <i class="fa-solid fa-graduation-cap fa-spin-pulse fa-3x"></i>
+        <h1>All students</h1>
+        <p>Total no. {{ total_s_count }}</p>
+    </div>
+
+    <div class="stats-card">
+        <i class="fa-solid fa-circle-check fa-spin fa-spin-reverse fa-3x"></i>
+        <h1>Good PCs</h1>
+        <p>Total no. {{ good_pcs }}</p>
+    </div>
+
+    <div class="stats-card">
+        <i class="fa-solid fa-triangle-exclamation fa-spin-pulse fa-3x"></i>
+        <h1>Missing PCs</h1>
+        <p>Total no. {{ missing }}</p>
+    </div>
+
 {% endblock %}
