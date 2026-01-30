@@ -22,3 +22,6 @@ def machine_list(request):
         machines = Machine.objects.all()
 
     return render(request, 'core/machine_list.html', context={ 'machines': machines })
+
+def add_machine(request):
+    return render(request, 'core/add_machine.html')
