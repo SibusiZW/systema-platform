@@ -18,9 +18,9 @@ def signout(request):
 def machine_list(request):
     if request.method == "GET":
         query = request.GET.get('q')
-        machines = Machine.objects.filter(Q(name__icontains=query) | Q(condition__icontains=query)) if query else Machine.objects.all()
+        machines = Machine.objects.filter(Q(name__icontains=query) | Q(condition__icontains=query)).order_by('-date_created') if query else Machine.objects.order_by('-date_created')
     else:
-        machines = Machine.objects.all()
+        machines = Machine.objects.order_by('-date_created')
 
     return render(request, 'core/machine_list.html', context={ 'machines': machines })
 
