@@ -1,7 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import logout
 from django.db.models import Q
-from django.http import HttpRequest
 from django.contrib.auth.decorators import login_required
 from .models import Machine, Allocation, Student
 from .forms import MachineForm
@@ -35,3 +34,9 @@ def add_machine(request):
         form = MachineForm()
 
     return render(request, 'core/add_machine.html', context={ 'form': form })
+
+def delete_pc(request, id):
+   machine = get_object_or_404(Machine, pk=id)
+   machine.delete()
+
+   return redirect('machines')
